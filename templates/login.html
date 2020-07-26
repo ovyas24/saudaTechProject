@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+
+{%block title%}
+    <title>Login Page</title>
+    <style>
+    </style>
+{%endblock%}
+
+{%block link%}
+    <a href="/login" class="nav-link active">LogIn</a>
+{%endblock%}
+
+{%block body%}
+{%if status == False%}
+<div class="wrapper">
+{%else%}
+<div class="wrapper fadeInDown">
+{%endif%}
+  <div id="formContent">
+    <div class="fadeIn first">
+        <i class="fa fa-user" aria-hidden="true" id="icon" style="font-size: 36px;"></i>
+    </div>
+
+    <form action="/login" method="POST">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+      <input type="text" id="password" class="fadeIn third" name="password"  placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <div id="formFooter">
+        <a class="underlineHover" href="#">
+            {%if status == False%}
+                <h1 class="danger">{{out}}</h1>
+            {%else%}
+                You are not logged in.
+            {%endif%}
+        </a>
+    </div>
+
+  </div>
+</div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{%endblock%}
